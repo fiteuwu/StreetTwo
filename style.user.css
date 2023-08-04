@@ -1,10 +1,13 @@
 /* ==UserStyle==
 @name           StreetTwo
-@namespace      fite.orbithub.xyz
+@namespace      https://github.com/fiteuwu/StreetTwo
 @version        1.0
-@description	google maps streetview but it looks good
+@description	Improvements to the new Google Maps Streetview UI
 @author			@fite.orbithub.xyz (bsky)
 @author			@fiteuwu (twitter)
+@homepageURL	https://github.com/fiteuwu/StreetTwo
+@supportURL		https://github.com/fiteuwu/StreetTwo/issues
+@updateURL		https://github.com/fiteuwu/StreetTwo/blob/main/style.user.css
 @preprocessor   stylus
 @var checkbox   showTopFade		"Show Top Fade"		0
 @var checkbox   showFooterInfo	"Show Footer Info"	0
