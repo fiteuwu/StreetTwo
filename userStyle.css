@@ -1,0 +1,92 @@
+/* ==UserStyle==
+@name           StreetTwo
+@namespace      fite.orbithub.xyz
+@version        1.0
+@description    google maps streetview but it looks good
+@author         @fite.orbithub.xyz (bsky)
+@preprocessor   stylus
+@var checkbox   showTopFade		"Show Top Fade"		0
+@var checkbox   showFooterInfo	"Show Footer Info"	0
+@var checkbox   showSearchBar	"Show Search Bar"	1
+@var text		borderRad		"Border Radius"		12px
+@var color		bgColor			"Background Color (Dark Elements Only)"	rgb(0, 0, 0)
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.google.com/maps/")
+	
+	/*move title card box to cover & make it be under the X button*/
+	div[role='navigation']
+		right: 16px !important
+
+		position: fixed
+		z-index: 0 !important
+
+
+	/*remove the giant blank space on title card & make the background match other UI elements on maps*/
+	.gzhbId
+		padding-left: 20px !important
+
+		border-radius: borderRad !important
+		background-color: bgColor
+
+
+	/*make background solid & set border radius*/
+	.app-imagery-mode .C5SiJf
+		opacity: 1
+		border-radius: borderRad !important
+
+
+	/*add shadow to title card, search box, map box, horizontal box, and zoom box*/
+	.app-imagery-mode .C5SiJf, #searchbox, .app-imagery-mode .F63Kk, .jLAg5b, .app-imagery-mode .WzvKIe
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 0px 10px 2px
+		border-radius: borderRad !important
+
+
+	/*slightly move close button*/
+	button[aria-label='Close']
+		right: 30px !important
+		top: 26px !important
+
+
+	/*move spotlight & settings buttons to the bottom*/
+	button[jsaction="titlecard.spotlight"]
+		top: 75%
+		right: 9%
+
+	button[jsaction="titlecard.settings"]
+		top: 73.5%
+		right: 4%
+	
+	/*make more things the same color*/
+	.app-imagery-mode .xsYFzc, .app-imagery-mode .WzvKIe
+		background-color: bgColor !important
+		
+	/*standardize the corners of the map box and horizontal box*/
+	.app-imagery-mode .F63Kk, .app-imagery-mode .WzvKIe
+		border-radius: borderRad !important
+		
+	/*standardize the corners of the zoom in button*/
+	.app-imagery-mode .xsYFzc.widget-zoom-in
+		border-top-left-radius: borderRad !important
+		border-top-right-radius: borderRad !important
+		
+	/*standardize the corners of the zoom out button*/
+	.app-imagery-mode .xsYFzc.widget-zoom-out
+		border-bottom-left-radius: borderRad !important
+		border-bottom-right-radius: borderRad !important
+	
+	/*hide the ugly ahh shadow at the top of the page*/
+	if not showTopFade
+		.svk30b
+			display: none
+	
+	/*show the info in the footer and the google logo*/
+	if not showFooterInfo
+		.scene-footer-container, #watermark
+			display: none
+	
+	/*show the new search bar*/
+	if not showSearchBar
+		#omnibox-container
+			display: none
+		
