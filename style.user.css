@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           StreetTwo
 @namespace      https://github.com/fiteuwu
-@version        1.1
+@version        1.1.1
 @description	Improvements to the new Google Maps Streetview UI
 @author			@fite.orbithub.xyz (bsky)
 @author			@fiteuwu (twitter)
@@ -13,7 +13,7 @@
 @var checkbox   showFooterInfo	"Show Footer Info"	0
 @var checkbox   showSearchBar	"Show Search Bar"	1
 @var text		borderRad		"Border Radius"		12px
-@var color		bgColor			"Background Color (Dark Elements Only)"	rgb(0, 0, 0)
+@var color		bgColor			"Background Color (Dark Elements Only)"	rgb(30, 30, 30)
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.google.com/maps/")
