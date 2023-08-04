@@ -2,8 +2,9 @@
 @name           StreetTwo
 @namespace      fite.orbithub.xyz
 @version        1.0
-@description    google maps streetview but it looks good
-@author         @fite.orbithub.xyz (bsky)
+@description	google maps streetview but it looks good
+@author			@fite.orbithub.xyz (bsky)
+@author			@fiteuwu (twitter)
 @preprocessor   stylus
 @var checkbox   showTopFade		"Show Top Fade"		0
 @var checkbox   showFooterInfo	"Show Footer Info"	0
