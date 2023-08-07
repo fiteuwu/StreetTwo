@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           StreetTwo
 @namespace      https://github.com/fiteuwu
-@version        1.2
+@version        1.3
 @description	Improvements to the new Google Maps Streetview UI
 @author			@fite.orbithub.xyz (bsky)
 @author			@fiteuwu (twitter)
@@ -12,7 +12,8 @@
 @var checkbox   showTopFade		"Show Top Fade"		0
 @var checkbox   showFooterInfo	"Show Footer Info"	0
 @var checkbox   showSearchBar	"Show Search Bar"	1
-@var text		borderRad		"Border Radius"		12px
+@var checkbox	changeSearch	"Change Search Bar Corners" 0
+@var text		borderRad		"Border Radius"		8px
 @var color		bgColor			"Background Color (Dark Elements Only)"	rgb(30, 30, 30)
 ==/UserStyle== */
 
@@ -25,32 +26,23 @@
 		position: fixed
 		z-index: 0 !important
 
-
 	/*remove the giant blank space on title card & make the background match other UI elements on maps*/
 	.gzhbId
 		padding-left: 20px !important
 
 		border-radius: borderRad !important
 		background-color: bgColor
-
-
+	
 	/*make background solid & set border radius*/
 	.app-imagery-mode .C5SiJf
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 0px 10px 2px
 		opacity: 1
 		border-radius: borderRad !important
-
-
-	/*add shadow to title card, search box, map box, horizontal box, and zoom box*/
-	.app-imagery-mode .C5SiJf, #searchbox, .app-imagery-mode .F63Kk, .jLAg5b, .app-imagery-mode .WzvKIe
-		box-shadow: rgba(0, 0, 0, 0.3) 2px 0px 10px 2px
-		border-radius: borderRad !important
-
 
 	/*slightly move close button*/
 	button[aria-label='Close']
 		right: 30px !important
 		top: 26px !important
-
 
 	/*move spotlight & settings buttons to the bottom*/
 	button[jsaction="titlecard.spotlight"]
@@ -61,12 +53,41 @@
 		top: 73.5%
 		right: 4%
 	
-	/*make more things the same color*/
-	.app-imagery-mode .xsYFzc, .app-imagery-mode .WzvKIe
-		background-color: bgColor !important
 		
-	/*standardize the corners of the map box and horizontal box*/
-	.app-imagery-mode .F63Kk, .app-imagery-mode .WzvKIe
+	/*add stuff to the following: 
+	#searchbox									-- search box
+	.app-imagery-mode .F63Kk					-- map box
+	.app-imagery-mode .xsYFzc					-- zoom box main background (both buttons)
+	.jLAg5b										-- zoom box shadow box
+	.app-imagery-mode .xsYFzc.widget-zoom-in	-- zoom box zoom in
+	.app-imagery-mode .xsYFzc.widget-zoom-out	-- zoom box zoom out
+	.app-imagery-mode .uSzaJe					-- 3d button (in main sattilite view)
+	.app-imagery-mode .Zf54rc					-- show location button (in main sattilite view)
+	.app-imagery-mode .WzvKIe					-- horizontal box
+	*/
+	
+	/*standardize color*/
+	.app-imagery-mode .xsYFzc,
+	.app-imagery-mode .uSzaJe,
+	.app-imagery-mode .Zf54rc,
+	.app-imagery-mode .WzvKIe
+		background-color: bgColor !important
+	
+	/*standardize shadow*/
+	#searchbox
+	.app-imagery-mode .F63Kk,
+	.jLAg5b,
+	.app-imagery-mode .uSzaJe,
+	.app-imagery-mode .Zf54rc,
+	.app-imagery-mode .WzvKIe
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 0px 10px 2px
+		
+	/*standardize corners*/
+	.app-imagery-mode .F63Kk,
+	.jLAg5b,
+	.app-imagery-mode .uSzaJe,
+	.app-imagery-mode .Zf54rc,
+	.app-imagery-mode .WzvKIe
 		border-radius: borderRad !important
 		
 	/*standardize the corners of the zoom in button*/
@@ -93,4 +114,13 @@
 	if not showSearchBar
 		#omnibox-container
 			display: none
-		
+	
+	if changeSearch
+		div[id="searchbox"][aria-expanded="false"]
+			border-radius: borderRad !important
+			
+		div[id="searchbox"][aria-expanded="true"]
+			border-top-left-radius: borderRad !important
+			border-top-right-radius: borderRad !important
+			border-bottom-left-radius: 0 !important
+			border-bottom-right-radius: 0 !important
